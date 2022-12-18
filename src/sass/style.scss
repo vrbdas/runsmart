@@ -1,1 +1,10 @@
-@import 'variables'
+@import 'base/variables';
+@import 'base/mixins';
+* {
+	font-family: 'Museo Sans Cyrl', sans-serif;  
+}
+.container {
+	max-width: 950px;
+	margin: 0 auto;
+}
+@import 'blocks/promo';
