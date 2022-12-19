@@ -1,0 +1,12 @@
+@mixin button-hover {
+    &:hover {
+        background: $main-color;
+    }
+}
+
+@mixin link-hover {
+    &:hover {
+        color: #FFF;
+        text-decoration: none;
+    }
+}
