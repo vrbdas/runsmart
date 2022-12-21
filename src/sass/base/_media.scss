@@ -8,9 +8,11 @@
 
 @media (max-width: 767px) {
 	.header {
-		flex-wrap: wrap;
 		&__phone {
 			font-size: 16px;
+		}
+		&__official {
+			display: none;
 		}
 	}
 	.advantage {
@@ -49,10 +51,12 @@
 			align-items: center;
 		}
 		&__header {
-			font-size: 24px;
+			font-size: 34px;
+			text-align: center;
 		}
 		&__subheader {
-			font-size: 14px;
+			font-size: 24px;
+			text-align: center;
 		}
 		&__icons {
 			width: auto;
