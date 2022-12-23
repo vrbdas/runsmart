@@ -15,23 +15,33 @@
 			display: none;
 		}
 	}
-	.advantage {
+	.advantages {
 		padding: 50px 0 50px 0;
 		&__elements {
 			margin-top: 0;
 			flex-direction: column;
 		}
 		&__element {
+			flex-direction: row;
 			margin-top: 50px;
 			max-width: 400px;
 		}
 		&__descr {
-			margin-top: 10px;
+			margin: 10px 0 0 20px;
 			h3 {
 				margin-bottom: 10px;
 			}
 		}
 	}
+	.title_left {
+		font-size: 30px;
+	}
+	.consultation {
+		&__descr {
+			font-size: 18px;
+		}
+	}
+	
 }
 
 @media (max-width: 575px) {
@@ -62,4 +72,24 @@
 			width: auto;
 		}
 	}
+	.consultation {
+		padding: 50px 0;
+		&__descr {
+			text-align: center; 
+			span {
+				@include no-line-break;
+			}
+		}
+	}
+	.title_left {
+		text-align: center;
+		span {
+			display: none;
+		}
+	}
+	.feed-form {
+		width: 100%;
+	}
+		
+	
 }

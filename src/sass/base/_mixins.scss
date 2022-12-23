@@ -10,3 +10,17 @@
         text-decoration: none;
     }
 }
+
+@mixin line-break {
+    &::before {
+        content: "\A";
+        white-space: pre;
+    }
+}
+
+@mixin no-line-break {
+    &::before {
+        content: " ";
+        white-space: normal;
+    }
+}

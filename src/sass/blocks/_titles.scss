@@ -10,5 +10,8 @@
 		line-height: 54px;
 		color: #FFFFFF;
 		text-align: left;
+		span {
+            @include line-break;
+        }
 	}
 	}
