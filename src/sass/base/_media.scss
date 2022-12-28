@@ -1,5 +1,7 @@
 @media (max-width: 1199px) {
-
+	.prev, .next {
+		display: none;
+	}
 }
 
 @media (max-width: 991px) {
@@ -39,6 +41,14 @@
 	.consultation {
 		&__descr {
 			font-size: 18px;
+		}
+	}
+
+	.carousel {
+		.tns-item {
+			img {
+				width: 100%;
+			}
 		}
 	}
 	
