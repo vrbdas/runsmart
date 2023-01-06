@@ -5,8 +5,9 @@
 }
 .container {
 	position: relative;
-	max-width: 950px;
+	max-width: 990px;
 	margin: 0 auto;
+	padding: 0px 20px 0 20px;
 }
 @import 'blocks/promo';
 @import 'blocks/header';
@@ -17,6 +18,7 @@
 @import 'blocks/forms';
 @import 'blocks/carousel';
 @import 'blocks/catalog';
+@import 'blocks/feedbacks';
 
 
 

@@ -100,6 +100,21 @@
 	.feed-form {
 		width: 100%;
 	}
+	.catalog {
+		&__tabs {
+			flex-direction: column;
+		}
+	}
+	.feedbacks {
+		&__item {
+			flex-direction: column;
+			grid-gap: 20px;
+		}
+		&__title, &__subtitle {
+			text-align: center;
+		}
+	}
+
 		
 	
 }
