@@ -6,20 +6,20 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        grid-gap: 100px;
+        gap: 100px;
+    }
+    &__img {
+        width: 169px;
+        height: 169px;
     }
     &__item {
         display: flex;
         justify-content: center;
         align-items: center;
-        grid-gap: 62px;
+        gap: 62px;
     }
-    &__descr {
-        line-height: 20px;
+    &__text {
         max-width: 660px;
-        color: #0d0d0d;
-        font-size: 16px;
-        font-weight: 300;
     }
     &__title {
         margin: 0 0 6px 0;
@@ -32,6 +32,12 @@
         color: #646464;
         font-size: 14px;
         font-weight: 300;
+    }
+    &__descr {
+        color: #0d0d0d;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 20px;
     }
 
 
