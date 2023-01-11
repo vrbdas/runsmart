@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable no-undef */
 const slider = tns({
 	container: ".carousel__slider",
@@ -22,14 +23,6 @@ document.querySelector(".next").onclick = function () {
 	slider.goTo("next");
 };
 
-$(".input-10").toArray().forEach(function (field) {
-	new Cleave(field, {
-		numericOnly: true,
-		phoneRegionCode: "{country}",
-		blocks: [0, 3, 0, 3, 4],
-		delimiters: ["(", ")", " ", "-"]
-	});
-});
 
 (function ($) {
 	$(() => {
@@ -103,5 +96,6 @@ $(".input-10").toArray().forEach(function (field) {
 	validateForms("#consultation form");
 	validateForms("#order form");
 
+	$('input[name=phone]').mask("+7 (999) 999-99-99");
 
 }(jQuery));
