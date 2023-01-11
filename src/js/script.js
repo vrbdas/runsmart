@@ -22,6 +22,15 @@ document.querySelector(".next").onclick = function () {
 	slider.goTo("next");
 };
 
+$(".input-10").toArray().forEach(function (field) {
+	new Cleave(field, {
+		numericOnly: true,
+		phoneRegionCode: "{country}",
+		blocks: [0, 3, 0, 3, 4],
+		delimiters: ["(", ")", " ", "-"]
+	});
+});
+
 (function ($) {
 	$(() => {
 		$("ul.catalog__tabs").on("click", "li:not(.catalog__tab_active)", function () {
@@ -62,6 +71,37 @@ document.querySelector(".next").onclick = function () {
 			$(".overlay, #order").fadeIn("slow");
 		});
 	});
+
+	function validateForms(form) {
+		$(form).validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2
+				},
+				phone: "required",
+				email: {
+					required: true,
+					email: true
+				}
+			},
+			messages: {
+				name: {
+					required: "Пожалуйста, введите свое имя",
+					minlength: jQuery.validator.format("Имя должно быть не короче {0} символов!")
+				},
+				phone: "Пожалуйста, введите свой номер телефона",
+				email: {
+					required: "Пожалуйста, введите свою почту",
+					email: "Неправильно введен адрес почты"
+				}
+			}
+		});
+	}
+
+	validateForms("#consultation-form");
+	validateForms("#consultation form");
+	validateForms("#order form");
 
 
 }(jQuery));

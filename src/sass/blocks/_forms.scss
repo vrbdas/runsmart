@@ -16,6 +16,10 @@
         &:nth-child(3) {
             margin-bottom: 20px;
         }
+        &:focus {
+            outline: none;
+            border: none;
+        }
     }
     &_mt25 {
         margin-top: 25px;

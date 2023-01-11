@@ -43,6 +43,7 @@
     "maintained node versions"
   ],
   "dependencies": {
+    "cleave.js": "^1.6.0",
     "tiny-slider": "^2.9.4"
   }
 }

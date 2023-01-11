@@ -10,6 +10,10 @@
 	text-transform: uppercase;
 	color: #FFFFFF;
 	@include button-hover;
+	&:focus {
+		outline: none;
+		border: none;
+	}
 	&_main {
 		margin-top: 67px;
 		width: 303px;
