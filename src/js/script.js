@@ -130,4 +130,6 @@ document.querySelector(".next").onclick = function () {
 		return false;
 	});
 
+	new WOW().init();
+
 }(jQuery));
