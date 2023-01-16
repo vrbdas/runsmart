@@ -42,7 +42,7 @@ document.querySelector(".next").onclick = function () {
 			$(this).on("click", (e) => {
 				e.preventDefault();
 				$(".catalog-item__content").eq(i).toggleClass("catalog-item__content_active");
-				$(".catalog-item__list").eq(i).toggleClass("catalog-item__list_active");
+				$(".catalog-item__details").eq(i).toggleClass("catalog-item__details_active");
 			});
 		});
 	}
@@ -130,6 +130,14 @@ document.querySelector(".next").onclick = function () {
 		return false;
 	});
 
-	new WOW().init();
-
+	wow = new WOW(
+		{
+			boxClass: 'wow',      // default
+			animateClass: 'animate__animated',
+			offset: 0,          // default
+			mobile: true,       // default
+			live: true        // default
+		}
+	);
+	wow.init();
 }(jQuery));

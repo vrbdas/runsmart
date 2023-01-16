@@ -126,25 +126,28 @@
 			transform: translateX(0%);
 		}
 	}
-	&__list {
+	&__details {
 		grid-area: 1 / 1 / 2 / 2;
 		transform: translateX(120%);
 		transition: 0.5s all;
 		padding: 0 0 0 7px;
 		margin: 0;
-		list-style-type: none;
 		&_active {
 			transform: translateX(0%);
 		}
 	}
-	&__list-item {
-		position: relative;
-		margin-bottom: 20px;
+	&__list {
+		list-style-type: none;
 		padding-left: 5px;
+	}
+	&__list-item {
 		color: #555555;
 		font-size: 14px;
 		font-weight: 500;
+		line-height: 20px;
 		text-align: left;
+		position: relative;
+		margin-bottom: 20px;
 		&:before {
 			content: '';
 			position: absolute;
