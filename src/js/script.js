@@ -88,7 +88,7 @@ document.querySelector(".next").onclick = function () {
 					required: "Пожалуйста, введите свою почту",
 					email: "Неправильно введен адрес почты"
 				}
-			}
+			},
 		});
 	}
 
@@ -98,20 +98,22 @@ document.querySelector(".next").onclick = function () {
 
 	$('input[name=phone]').mask("+7 (999) 999-99-99");
 
-	$('form').submit(function (e) {
+	var form = $("#consultation-form");
+	$(form).submit(function (e) {
 		e.preventDefault();
-		$.ajax({
-			type: "POST",
-			url: "../form-processing.php",
-			data: $(this).serialize()
-		}).done(function () {
-			$(this).find("input").val("");
-			$('#consultation, #order').fadeOut();
-			$('.overlay, #thanks').fadeIn('slow');
-
-			$('form').trigger('reset');
-		});
-		return false;
+		if ($(form).valid() == true) {
+			$.ajax({
+				type: "POST",
+				url: "../form-processing.php",
+				data: $(this).serialize()
+			}).done(function () {
+				$(this).find("input").val("");
+				$('#consultation, #order').fadeOut();
+				$('.overlay, #thanks').fadeIn('slow');
+				$('form').trigger('reset');
+			});
+			return false;
+		}
 	});
 
 	// Smooth scroll and pageup
