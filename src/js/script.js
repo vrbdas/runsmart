@@ -98,23 +98,69 @@ document.querySelector(".next").onclick = function () {
 
 	$('input[name=phone]').mask("+7 (999) 999-99-99");
 
-	var form = $('form');
-	$(form).submit(function (e) {
+	var form1 = $('#consultation-form');
+	$(form1).submit(function (e) {
+		let check;
+		check = $(form1).valid();
 		e.preventDefault();
-		if ($(form).valid() == true) {
+		if (check == true) {
 			$.ajax({
-				type: "POST",
-				url: "../form-processing.php",
-				data: $(this).serialize()
+				//type: "POST",
+				//url: "../form-processing.php",
+				//data: $(this).serialize()
 			}).done(function () {
 				$(this).find("input").val("");
 				$('#consultation, #order').fadeOut();
 				$('.overlay, #thanks').fadeIn('slow');
 				$('form').trigger('reset');
+				check = false;
 			});
 			return false;
 		}
 	});
+
+	var form2 = $('#modal-form');
+	$(form2).submit(function (e) {
+		let check;
+		check = $(form2).valid();
+		e.preventDefault();
+		if (check == true) {
+			$.ajax({
+				//type: "POST",
+				//url: "../form-processing.php",
+				//data: $(this).serialize()
+			}).done(function () {
+				$(this).find("input").val("");
+				$('#consultation, #order').fadeOut();
+				$('.overlay, #thanks').fadeIn('slow');
+				$('form').trigger('reset');
+				check = false;
+			});
+			return false;
+		}
+	});
+
+	var form3 = $('#order-form');
+	$(form3).submit(function (e) {
+		let check;
+		check = $(form3).valid();
+		e.preventDefault();
+		if (check == true) {
+			$.ajax({
+				//type: "POST",
+				//url: "../form-processing.php",
+				//data: $(this).serialize()
+			}).done(function () {
+				$(this).find("input").val("");
+				$('#consultation, #order').fadeOut();
+				$('.overlay, #thanks').fadeIn('slow');
+				$('form').trigger('reset');
+				check = false;
+			});
+			return false;
+		}
+	});
+
 
 	// Smooth scroll and pageup
 
