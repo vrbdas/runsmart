@@ -2,17 +2,20 @@
     min-height: 680px;
     padding: 100px 0 108px 0;
     background: url('../img/bg2.png') center center/cover no-repeat;
+
     &__descr {
         font-weight: 500;
         font-size: 20px;
         line-height: 30px;
-        color: #FFFFFF;  
+        color: #FFFFFF;
+
         span {
             @include line-break;
         }
     }
+
     .error {
-        text-align: center;
+        text-align: left;
         font-size: 14px;
         border: 1px solid red;
         margin-bottom: 15px;
@@ -23,5 +26,5 @@
         border: none;
         margin-bottom: 20px;
     }
-    
+
 }

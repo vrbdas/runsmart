@@ -98,7 +98,7 @@ document.querySelector(".next").onclick = function () {
 
 	$('input[name=phone]').mask("+7 (999) 999-99-99");
 
-	var form = $("#consultation-form");
+	var form = $('form');
 	$(form).submit(function (e) {
 		e.preventDefault();
 		if ($(form).valid() == true) {

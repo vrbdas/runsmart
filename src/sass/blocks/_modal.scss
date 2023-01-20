@@ -6,15 +6,17 @@
     background: rgba($color: #000000, $alpha: 0.56);
     top: 0;
 }
+
 .modal {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 380px;
     min-height: 400px;
     background-color: #f2f2f2;
     padding: 38px;
+
     &__close {
         position: absolute;
         top: 0;
@@ -24,6 +26,7 @@
         line-height: 21px;
         cursor: pointer;
     }
+
     &__subtitle {
         color: #0d0d0d;
         font-size: 19px;
@@ -31,6 +34,7 @@
         line-height: 19px;
         text-align: center;
     }
+
     &__descr {
         color: #0d0d0d;
         font-size: 14px;
@@ -39,25 +43,31 @@
         text-align: center;
         margin-top: 11px;
     }
+
     &_mini {
         min-height: 140px;
     }
+
     .error {
-        text-align: center;
+        text-align: left;
         font-size: 14px;
         border: 1px solid red;
         margin-bottom: 15px;
         color: #4B4B4B;
+
         &:focus {
             border: 1px solid red;
         }
     }
+
     label.error {
         border: none;
         margin-bottom: 20px;
     }
 }
 
-#consultation, #order, #thanks {
+#consultation,
+#order,
+#thanks {
     display: none;
 }
