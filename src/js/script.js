@@ -105,9 +105,9 @@ document.querySelector(".next").onclick = function () {
 		e.preventDefault();
 		if (check == true) {
 			$.ajax({
-				//type: "POST",
-				//url: "../form-processing.php",
-				//data: $(this).serialize()
+				type: "POST",
+				url: "../form-processing.php",
+				data: $(this).serialize()
 			}).done(function () {
 				$(this).find("input").val("");
 				$('#consultation, #order').fadeOut();
@@ -126,9 +126,9 @@ document.querySelector(".next").onclick = function () {
 		e.preventDefault();
 		if (check == true) {
 			$.ajax({
-				//type: "POST",
-				//url: "../form-processing.php",
-				//data: $(this).serialize()
+				type: "POST",
+				url: "../form-processing.php",
+				data: $(this).serialize()
 			}).done(function () {
 				$(this).find("input").val("");
 				$('#consultation, #order').fadeOut();
@@ -147,9 +147,9 @@ document.querySelector(".next").onclick = function () {
 		e.preventDefault();
 		if (check == true) {
 			$.ajax({
-				//type: "POST",
-				//url: "../form-processing.php",
-				//data: $(this).serialize()
+				type: "POST",
+				url: "../form-processing.php",
+				data: $(this).serialize()
 			}).done(function () {
 				$(this).find("input").val("");
 				$('#consultation, #order').fadeOut();
