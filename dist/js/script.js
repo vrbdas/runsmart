@@ -1,5 +1,3 @@
-/* eslint-disable quotes */
-/* eslint-disable no-undef */
 const slider = tns({
 	container: ".carousel__slider",
 	items: 1,
@@ -172,7 +170,7 @@ document.querySelector(".next").onclick = function () {
 		}
 	});
 
-	$("a[class='pageup']").click(function () {
+	$("a[href^='#']").click(function () {
 		const _href = $(this).attr("href");
 		$("html, body").animate({ scrollTop: $(_href).offset().top + "px" });
 		return false;
