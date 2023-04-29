@@ -1,66 +1,65 @@
-const gulp = require('gulp');
-const browserSync = require('browser-sync');
-const sass = require('gulp-sass')(require('sass'));
-const rename = require("gulp-rename");
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
-const htmlmin = require('gulp-htmlmin');
+/* eslint-disable */
 
-// Static server
-gulp.task('server', function () {
-    browserSync.init({
-        server: {
-            baseDir: "dist"
-        }
-    });
-    gulp.watch("src/*.html").on("change", browserSync.reload)
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('gulp-autoprefixer');
+const clean = require('gulp-clean');
+const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
+const htmlmin = require('gulp-htmlmin');
+const sourcemaps = require('gulp-sourcemaps');
+
+const destFolder = 'Pulse';
+
+gulp.task('clean', function () {
+    return gulp.src(`C:/Code/domains/${destFolder}`, { read: false })
+        .pipe(clean({ force: true }))
 });
 
 gulp.task('styles', function () {
-    return gulp.src("src/sass/**/*.+(scss|sass)")
+    return gulp.src("src/scss/**/*.+(scss|sass)")
+        .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(rename({
-            prefix: "",
-            suffix: ".min"
-        }))
+        .pipe(rename({ suffix: '.min', prefix: '' }))
         .pipe(autoprefixer())
         .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(gulp.dest("dist/css"))
-        .pipe(browserSync.stream());
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(`C:/Code/domains/${destFolder}/css`))
 });
 
 gulp.task('watch', function () {
-    gulp.watch("src/sass/**/*.+(scss|sass|css)", gulp.parallel("styles"));
-    gulp.watch("src/*.html").on("change", gulp.parallel('html'));
-    gulp.watch("src/js/**/*.js").on("change", browserSync.reload);;
+    gulp.watch("src/scss/**/*.+(scss|sass|css)", gulp.parallel('styles'));
+    gulp.watch("src/*.html").on('change', gulp.parallel('html'));
+    gulp.watch("src/js/**/*").on('change', gulp.parallel('scripts'));
+    gulp.watch("src/fonts/**/*").on('all', gulp.parallel('fonts'));
+    gulp.watch("src/svg/**/*").on('all', gulp.parallel('svg'));
+    gulp.watch("src/img/**/*").on('all', gulp.parallel('images'));
 });
 
 gulp.task('html', function () {
     return gulp.src("src/*.html")
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest("dist/"));
+        .pipe(gulp.dest(`C:/Code/domains/${destFolder}/`));
 });
 
 gulp.task('scripts', function () {
-    return gulp.src("src/js/**/*.js")
-        .pipe(gulp.dest("dist/js"));
+    return gulp.src("src/js/*")
+        .pipe(gulp.dest(`C:/Code/domains/${destFolder}/js`))
 });
 
 gulp.task('fonts', function () {
     return gulp.src("src/fonts/**/*")
-        .pipe(gulp.dest("dist/fonts"));
+        .pipe(gulp.dest(`C:/Code/domains/${destFolder}/fonts`))
 });
 
-gulp.task('icons', function () {
-    return gulp.src("src/icons/**/*")
-        .pipe(gulp.dest("dist/icons"));
+gulp.task('svg', function () {
+    return gulp.src("src/svg/**/*")
+        .pipe(gulp.dest(`C:/Code/domains/${destFolder}/svg`))
 });
 
 gulp.task('images', function () {
     return gulp.src("src/img/**/*")
-        .pipe(gulp.dest("dist/img"));
+        .pipe(gulp.dest(`C:/Code/domains/${destFolder}/img`))
 });
 
-
-
-gulp.task('default', gulp.parallel('watch', 'server', 'styles', 'scripts', 'fonts', 'icons', 'html', 'images'));
+gulp.task('default', gulp.series('clean', gulp.parallel('styles', 'watch', 'html', 'scripts', 'fonts', 'svg', 'images')));
