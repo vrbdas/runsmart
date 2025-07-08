@@ -13,6 +13,10 @@
 	.next {
 		display: none;
 	}
+
+	.pageup {
+		display: none !important;
+	}
 }
 
 @media (max-width: 991px) {}

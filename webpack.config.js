@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -8,16 +6,13 @@ module.exports = {
   entry: './src/js/script.js',
   output: {
     filename: 'bundle.js',
-    path: `${__dirname}/src/js`,
+    path: path.resolve(__dirname, 'dist'), // Кладём bundle.js прямо в dist/
   },
-  watch: true,
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
   },
-
   devtool: 'source-map',
-
   module: {
     rules: [
       {

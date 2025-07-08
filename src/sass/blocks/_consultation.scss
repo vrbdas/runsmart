@@ -13,18 +13,4 @@
             @include line-break;
         }
     }
-
-    .error {
-        text-align: left;
-        font-size: 14px;
-        border: 1px solid red;
-        margin-bottom: 15px;
-    }
-
-    label.error {
-        color: #fff;
-        border: none;
-        margin-bottom: 20px;
-    }
-
 }
